@@ -36,3 +36,4 @@ lerna-debug.log*
 
 # DB cache files
 /mysql-data
+/prisma/migrations

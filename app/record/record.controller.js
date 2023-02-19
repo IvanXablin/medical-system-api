@@ -1,7 +1,7 @@
 import { createRecord } from "./record.service.js";
 
-// @desc get schedule
+// @desc create record
 // @route POST /api/record/create
-export const getSchedule = async (request, response) => {
+export const create = async (request, response) => {
     response.json(createRecord(request.body));
 };

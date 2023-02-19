@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Schedule {
@@ -18,6 +18,17 @@ model Schedule {
   patientId           Int
   patient             Patient  @relation(fields: [patientId], references: [id])
   isRepeatAppointment Boolean
+  Record              Record[]
+}
+
+model Record {
+  id         Int      @id @default(autoincrement())
+  patient    Patient  @relation(fields: [patientId], references: [id])
+  patientId  Int
+  doctor     Doctor   @relation(fields: [doctorId], references: [id])
+  doctorId   Int
+  schedule   Schedule @relation(fields: [scheduleId], references: [id])
+  scheduleId Int
 }
 
 model Patient {
@@ -27,6 +38,7 @@ model Patient {
   email    String     @unique
   gender   String
   Schedule Schedule[]
+  Record   Record[]
 }
 
 model Doctor {
@@ -35,4 +47,5 @@ model Doctor {
   spec     String
   price    Decimal
   Schedule Schedule[]
+  Record   Record[]
 }
