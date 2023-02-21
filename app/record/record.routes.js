@@ -1,8 +1,8 @@
 import express from "express";
-import { create } from "./record.controller.js";
+import { recordController } from "./record.controller.js";
 
 const router = express.Router();
 
-router.route('/create').post(create);
+router.route('/create').post(recordController);
 
 export default router;

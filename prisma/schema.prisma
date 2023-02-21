@@ -17,6 +17,8 @@ model Schedule {
   isFree              Boolean
   patientId           Int
   patient             Patient  @relation(fields: [patientId], references: [id])
+  isSendMailDay       Boolean
+  isSendMailHour      Boolean
   isRepeatAppointment Boolean
   Record              Record[]
 }
@@ -33,9 +35,9 @@ model Record {
 
 model Patient {
   id       Int        @id @default(autoincrement())
-  phone    String     @unique
+  phone    String
   name     String
-  email    String     @unique
+  email    String
   gender   String
   Schedule Schedule[]
   Record   Record[]

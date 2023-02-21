@@ -1,7 +1,12 @@
 import { registerPatient } from "./patient.service.js";
+import asyncHandler from "express-async-handler";
 
-// @desc Register patient
 // @route POST /api/patient/register
-export const register = async (request, response) => {
-    response.json(registerPatient(request.body));
-};
+export const patientController = asyncHandler(async (request, response) => {
+    const responseService = await registerPatient(request.body)
+    response.json(responseService);
+})
+
+
+
+

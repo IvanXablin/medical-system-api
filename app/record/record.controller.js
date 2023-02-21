@@ -1,7 +1,8 @@
 import { createRecord } from "./record.service.js";
+import asyncHandler from "express-async-handler";
 
-// @desc create record
 // @route POST /api/record/create
-export const create = async (request, response) => {
-    response.json(createRecord(request.body));
-};
+export const recordController = asyncHandler(async (request, response) => {
+    const responseService = await createRecord(request.body);
+    response.json(responseService);
+})
