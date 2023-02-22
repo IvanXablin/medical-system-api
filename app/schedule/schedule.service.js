@@ -6,6 +6,8 @@ export const getInfoSchedule = async (params) => {
 
     const dateQuery = moment(date).utc(true).toISOString();
 
+    moment.suppressDeprecationWarnings = false;
+
     return prisma.schedule.findMany({
         where: {
            date: dateQuery

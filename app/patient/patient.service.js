@@ -11,7 +11,7 @@ export const registerPatient = async (body) => {
     });
 
     if (oldPatient.length) {
-        return { message: 'Пациент существует в системе!' };
+        return { message: 'Пациент существует в системе!', statusCode: 409 };
     }
 
     const newPatient = {
@@ -22,7 +22,12 @@ export const registerPatient = async (body) => {
         gender: gender
     };
 
-    return prisma.patient.create({
-       data: newPatient
+    const patientData = await prisma.patient.create({
+        data: newPatient
     });
+
+    return {
+        data: patientData,
+        statusCode: 200
+    }
 };

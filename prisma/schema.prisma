@@ -11,7 +11,7 @@ model Schedule {
   id                  Int      @id @default(autoincrement())
   doctorId            Int
   doctor              Doctor   @relation(fields: [doctorId], references: [id])
-  date                DateTime
+  date                DateTime @db.Date
   timeFrom            DateTime
   timeTo              DateTime
   isFree              Boolean
