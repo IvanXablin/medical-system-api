@@ -43,7 +43,7 @@ $ docker exec mis-api-api-1 prisma migrate dev --name init // инициализ
 > <img src="https://github.com/IvanXablin/mis-api/blob/master/docs/screenshots/s5.png" alt="drawing" width="1000"/>
 
 
-> Чтобы создать запись нужно обращаться к URL http://localhost:3000/api/schedule/info?date='{{ date }}' через GET запрос
+> Чтобы получить расписание на определенную дату нужно обращаться к URL http://localhost:3000/api/schedule/info?date='{{ date }}' через GET запрос
 
 > <img src="https://github.com/IvanXablin/mis-api/blob/master/docs/screenshots/s6.png" alt="drawing" width="1000"/>
 
