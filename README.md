@@ -17,7 +17,7 @@ $ docker exec mis-api-api-1 prisma migrate dev --name init // инициализ
 ```
 
 - После выполения команд, переходим по URl: http://localhost:8081/
-- После после перехода, должно быть форма входа 
+- После перехода, должна быть форма входа 
 
 > <img src="https://github.com/IvanXablin/mis-api/blob/master/docs/screenshots/s1.png" alt="drawing" width="1000"/>
 
